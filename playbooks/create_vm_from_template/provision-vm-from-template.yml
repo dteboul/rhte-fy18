@@ -34,6 +34,7 @@
         validate_certs: no
         esxi_hostname: "{{ esxi_host }}"
         datacenter: "{{ datacenter }}"
+        datastore: "{{ datastore }}"
         folder: Discovered virtual machine
         name: "{{ inventory_hostname }}"
         state: poweredon
@@ -50,9 +51,9 @@
       register: deploy
 
     - name: Gather the facts for the VM
-      vsphere_guest:
+      vmware_guest:
         validate_certs: no
-        vcenter_hostname: "{{ vcenter_hostname }}"
+        hostname: "{{ vcenter_hostname }}"
         guest: "{{ inventory_hostname }}"
         vmware_guest_facts: yes
       register: new_vm
