@@ -54,6 +54,7 @@
       vmware_guest_facts:
         validate_certs: no
         hostname: "{{ vcenter_hostname }}"
+        datacenter: "{{ datacenter }}"
         name: "{{ inventory_hostname }}"
       register: new_vm
 
