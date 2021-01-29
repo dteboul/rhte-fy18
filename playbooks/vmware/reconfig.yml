@@ -7,7 +7,6 @@
       vmware_guest:
         validate_certs: False      
         hostname: "{{ vcenter_server }}"
-        guest_id: "{{ guest_name }}"
         name: "{{ guest_name }}"
         state: present
         hardware:
