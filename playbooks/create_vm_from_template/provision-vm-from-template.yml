@@ -31,8 +31,6 @@
     - name: create the VM
       vmware_guest:
         hostname: "{{ vcenter_hostname }}"
-        username: administrator@vsphere.local
-        password: vmware
         validate_certs: no
         esxi_hostname: "{{ esxi_host }}"
         datacenter: "{{ datacenter }}"
