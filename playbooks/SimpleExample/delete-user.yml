@@ -18,7 +18,6 @@
         headers:
            X-Auth-Token: "{{ manageiq.api_token }}"
            Content-Type: "application/json"
-           HEADER_Content-Type: "application/json"
         body_format: json
         return_content: yes
       register: token_output
