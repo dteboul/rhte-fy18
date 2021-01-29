@@ -51,7 +51,7 @@
       register: deploy
 
     - name: Gather the facts for the VM
-      vsphere_guest:
+      vmware_guest_facts:
         validate_certs: no
         vcenter_hostname: "{{ vcenter_hostname }}"
         guest: "{{ inventory_hostname }}"
