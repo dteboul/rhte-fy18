@@ -34,13 +34,13 @@
         validate_certs: no
         esxi_hostname: "{{ esxi_host }}"
         datacenter: "{{ datacenter }}"
-        datastore: "{{ datastore }}"
         folder: Discovered virtual machine
         name: "{{ inventory_hostname }}"
         state: poweredon
         disk:
         - size_gb: 10
           type: thin
+          autoselect_datastore: True
         hardware:
           memory_mb: 512
           num_cpus: 1
