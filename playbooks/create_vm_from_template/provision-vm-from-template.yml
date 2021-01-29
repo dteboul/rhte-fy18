@@ -54,7 +54,7 @@
       vmware_guest_facts:
         validate_certs: no
         hostname: "{{ vcenter_hostname }}"
-        guest: "{{ inventory_hostname }}"
+        name: "{{ inventory_hostname }}"
       register: new_vm
 
     - debug: var=new_vm    
