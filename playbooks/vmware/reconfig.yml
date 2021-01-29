@@ -1,0 +1,15 @@
+---
+- hosts: all
+
+
+  tasks:
+    - name: "Reconfigure {{ guest_name }} "
+      vmware_guest::
+        validate_certs: False      
+        hostname: "{{ vcenter_server }}"
+        guest_id: "{{ guest_name }}"
+        state: present
+        hardware:
+            num_cpus: 1
+            memory_mb: 1024
+      delegate_to: localhost
