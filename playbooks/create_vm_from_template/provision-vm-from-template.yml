@@ -59,9 +59,10 @@
       register: new_vm
 
     - debug: var=new_vm    
-
-    - set_fact: new_vm_uuid="{{ new_vm.ansible_facts.hw_product_uuid }}"
-
+    - name set new_vm_uuid "{{ new_vm.ansible_facts.hw_product_uuid }}"
+      set_fact: 
+      new_vm_uuid: "{{ new_vm.ansible_facts.hw_product_uuid }}"
+    
     - debug: var=new_vm_uuid
 
     - name: Refresh provider in CloudForms
