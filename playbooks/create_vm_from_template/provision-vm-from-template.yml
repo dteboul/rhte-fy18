@@ -59,9 +59,7 @@
       register: new_vm
 
     - debug: var=new_vm    
-    - name set new_vm_uuid "{{ new_vm.ansible_facts.hw_product_uuid }}"
-      set_fact: 
-      new_vm_uuid: "{{ new_vm.ansible_facts.hw_product_uuid }}"
+    - set_fact: new_vm_uuid= "{{ new_vm.hw_product_uuid }}"
     
     - debug: var=new_vm_uuid
 
