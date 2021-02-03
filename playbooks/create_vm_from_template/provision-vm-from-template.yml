@@ -34,7 +34,7 @@
         validate_certs: no
         esxi_hostname: "{{ esxi_host }}"
         datacenter: "{{ datacenter }}"
-        folder: Watson & Cloud Platform
+        folder: "Watson & Cloud Platform / David Teboul"
         name: "{{ inventory_hostname }}"
         state: poweredon
         disk:
