@@ -5,8 +5,8 @@
 
   vars:
     provider_id: "2"
-    max_retries: 9
-    retry_interval: 20
+    max_retries: 10
+    retry_interval: 40
 
   tasks:
     - debug: var=vcenter_hostname
@@ -34,7 +34,7 @@
         validate_certs: no
         esxi_hostname: "{{ esxi_host }}"
         datacenter: "{{ datacenter }}"
-        folder: Discovered virtual machine
+        folder: Watson & Cloud Platform
         name: "{{ inventory_hostname }}"
         state: poweredon
         disk:
