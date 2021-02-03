@@ -38,7 +38,7 @@
         name: "{{ inventory_hostname }}"
         state: poweredon
         disk:
-        - size_gb: 12
+        - size_gb: 70
           type: thin
           autoselect_datastore: True
         hardware:
