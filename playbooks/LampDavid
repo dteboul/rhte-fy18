@@ -1,0 +1,75 @@
+---
+# Setup LAMP dbserver
+-  hosts: "dbhosts"
+   become: true
+   pre_tasks:
+    - pause: seconds=5
+    - name: Wait for connection
+      wait_for_connection:
+        timeout: 600
+      ignore_errors: yes     
+   tasks:
+   
+      -  name: Install os packages
+         yum:
+            name: 
+              - java
+              - wget
+              - unzip
+            state: present
+            update_cache: yes
+
+      -  name: Get Derby Trader Database 
+         unarchive: 
+           src: https://ibm.box.com/shared/static/demfqj4tk2ix0yxdkp9eijuaclpzp7pe.zip
+           dest: /opt
+           remote_src: yes
+     
+      -  name: start derby-server
+         command: nohup /usr/bin/sh ./start.sh -h {{ ipdb }}  &
+         debugger: true
+         args:
+           chdir: /opt/DerbyServer/bin
+
+# Setup web servers
+-  hosts: "webhosts"
+   become: true
+   pre_tasks:
+    - pause: seconds=5
+    - name: Wait for connection
+      wait_for_connection:
+        timeout: 600
+      ignore_errors: yes
+   tasks:
+      
+      -  name: Install OS packages
+         ignore_errors: yes
+         yum:
+            name:
+              - java
+              - wget
+              - unzip
+            state: present
+            update_cache: yes
+            
+          
+      -  name: ip dbserver in host file
+         lineinfile:
+           path: /etc/hosts
+           line: "{{ ipdb }}      dbserver"
+           insertafter: EOF
+         
+      -  name: Get Trader App in OpenLiberty
+         unarchive:
+          src:  https://ibm.box.com/shared/static/poy5gmsmiuqht99c9hxjdogzkmqmmujb.zip
+          dest: /opt
+          remote_src: yes
+         
+      -  name: start liberty server
+         ignore_errors: yes
+         command: nohup /usr/bin/sh /opt/olp/bin/server start tradeLiteServer    
+         
+      -  debug: 
+           msg: "you can now connect to TraderLite application using this url : http://{{ ipweb }}:9080/tradelite"
+         
+
