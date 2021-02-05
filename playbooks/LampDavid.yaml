@@ -62,7 +62,7 @@
            line: "{{ ipdb }}      dbserver"
            insertafter: EOF
          
-      -  name: Get Trader App in OpenLiberty for {{ ipweb1 }}
+      -  name: Get Trader App in OpenLiberty for {{ipweb1}}
          unarchive:
           src:  https://ibm.box.com/shared/static/poy5gmsmiuqht99c9hxjdogzkmqmmujb.zip
           dest: /opt
