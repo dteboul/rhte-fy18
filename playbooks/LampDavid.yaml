@@ -13,7 +13,7 @@
       ignore_errors: yes     
    tasks:
    
-      -  name: Install os packages
+      -  name: Install os packages for {{ ipdb }}
          yum:
             name: 
               - java
@@ -62,7 +62,7 @@
            line: "{{ ipdb }}      dbserver"
            insertafter: EOF
          
-      -  name: Get Trader App in OpenLiberty
+      -  name: Get Trader App in OpenLiberty for {{ ipweb }}
          unarchive:
           src:  https://ibm.box.com/shared/static/poy5gmsmiuqht99c9hxjdogzkmqmmujb.zip
           dest: /opt
