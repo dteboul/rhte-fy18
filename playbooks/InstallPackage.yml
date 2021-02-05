@@ -5,5 +5,5 @@
   - package_name: httpd
 
   tasks:
-  - name: install package {{ package_name }} for {{hostvars[inventory_hostname].ansible_ssh_host}} 
+  - name: install package {{ package_name }} for {{hostvars[inventory_hostname].ansible_ssh_host}}  host {{hostvars[inventory_hostname].cloudforms.connection_state}}
     yum: name={{ package_name }} state=present
