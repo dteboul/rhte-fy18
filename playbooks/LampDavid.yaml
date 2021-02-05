@@ -29,7 +29,7 @@
            remote_src: yes
      
       -  name: start derby-server
-         command: nohup /usr/bin/sh ./start.sh -h {{ ipdb }}  &
+         command: nohup /usr/bin/sh ./start.sh -h {{ ipdb1 }}  &
          debugger: true
          args:
            chdir: /opt/DerbyServer/bin
@@ -62,7 +62,7 @@
       -  name: ip dbserver in host file
          lineinfile:
            path: /etc/hosts
-           line: "{{ ipdb }}      dbserver"
+           line: "{{ ipdb1 }}      dbserver"
            insertafter: EOF
          
       -  name: Get Trader App in OpenLiberty for {{ipweb1}}
@@ -76,6 +76,6 @@
          command: nohup /usr/bin/sh /opt/olp/bin/server start tradeLiteServer    
          
       -  debug: 
-           msg: "you can now connect to TraderLite application using this url : http://{{ ipweb }}:9080/tradelite"
+           msg: "you can now connect to TraderLite application using this url : http://{{ipweb1}}:9080/tradelite"
          
 
