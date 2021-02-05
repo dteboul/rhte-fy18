@@ -1,6 +1,6 @@
 ---
 # Setup LAMP dbserver
--  hosts: "dbhosts"
+-  hosts: all
    become: true
    pre_tasks:
     - pause: seconds=5
@@ -32,7 +32,7 @@
            chdir: /opt/DerbyServer/bin
 
 # Setup web servers
--  hosts: "webhosts"
+-  hosts: all
    become: true
    pre_tasks:
     - pause: seconds=5
