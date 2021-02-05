@@ -3,8 +3,8 @@
 -  hosts: all
    become: true
    vars:
-    - ipdb1: {{hostvars[inventory_hostname].ansible_ssh_host}}
-    - dbserver1: {{hostvars[inventory_hostname].ansible_ssh_host}}
+    - ipdb1: "{{hostvars[inventory_hostname].ansible_ssh_host}}"
+    - dbserver1: "{{hostvars[inventory_hostname].ansible_ssh_host}}"
    pre_tasks:
     - pause: seconds=5
     - name: Wait for connection
@@ -13,7 +13,7 @@
       ignore_errors: yes     
    tasks:
    
-      -  name: Install os packages for {{ ipdb1 }}
+      -  name: Install os packages for {{hostvars[inventory_hostname].ansible_ssh_host}}
          yum:
             name: 
               - java
