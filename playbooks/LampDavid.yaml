@@ -3,8 +3,8 @@
 -  hosts: all
    become: true
    vars:
-    - ipdb1: "{{hostvars[inventory_hostname].ansible_ssh_host}}"
-    - dbserver1: "{{hostvars[inventory_hostname].ansible_ssh_host}} "
+    - ipdb1: {{hostvars[inventory_hostname].ansible_ssh_host}}
+    - dbserver1: {{hostvars[inventory_hostname].ansible_ssh_host}}
    pre_tasks:
     - pause: seconds=5
     - name: Wait for connection
