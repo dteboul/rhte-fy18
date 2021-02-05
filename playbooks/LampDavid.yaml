@@ -3,8 +3,8 @@
 -  hosts: all
    become: true
    vars:
-    - ipdb: "{{hostvars[inventory_hostname].ansible_ssh_host}}"
-    - dbserver: "{{hostvars[inventory_hostname].ansible_ssh_host}} "
+    - ipdb1: "{{hostvars[inventory_hostname].ansible_ssh_host}}"
+    - dbserver1: "{{hostvars[inventory_hostname].ansible_ssh_host}} "
    pre_tasks:
     - pause: seconds=5
     - name: Wait for connection
@@ -13,7 +13,7 @@
       ignore_errors: yes     
    tasks:
    
-      -  name: Install os packages for {{ ipdb }}
+      -  name: Install os packages for {{ ipdb1 }}
          yum:
             name: 
               - java
@@ -62,7 +62,7 @@
            line: "{{ ipdb }}      dbserver"
            insertafter: EOF
          
-      -  name: Get Trader App in OpenLiberty for {{ ipweb }}
+      -  name: Get Trader App in OpenLiberty for {{ ipweb1 }}
          unarchive:
           src:  https://ibm.box.com/shared/static/poy5gmsmiuqht99c9hxjdogzkmqmmujb.zip
           dest: /opt
