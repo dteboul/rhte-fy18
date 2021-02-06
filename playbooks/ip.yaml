@@ -10,4 +10,4 @@
     set_stats:
         data:
           resu:  "ABCDEF"
-          vmname: vm_name
+          vmname: {{ vm_name }}
