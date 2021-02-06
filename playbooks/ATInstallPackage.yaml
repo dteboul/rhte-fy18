@@ -7,7 +7,8 @@
   tasks:
   - name: install package {{ package_name }} for {{hostvars[inventory_hostname].ansible_ssh_host}}  host {{hostvars[inventory_hostname].cloudforms.connection_state}}
     yum: name={{ package_name }} state=present
-    
+   
+  tasks:
   - name: "IP valeur"
       set_stats:
         data:
