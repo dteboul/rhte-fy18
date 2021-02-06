@@ -1,0 +1,13 @@
+---
+- name: test ip
+  hosts: all
+  vars:
+  - vm_name: abc
+
+  tasks:
+
+  - name: "IP valeur"
+    set_stats:
+        data:
+          integration_results_url:  "ABCDEF"
+          vmname: vm_name
