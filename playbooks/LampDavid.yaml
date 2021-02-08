@@ -12,7 +12,13 @@
         timeout: 600
       ignore_errors: yes     
    tasks:
-   
+      -  name: Install yum utils
+         package:
+              name:
+               - yum-utils
+               - "@Development tools"
+              lock_timeout: 180
+
       -  name: Install os packages for {{ipdb1}}
          yum:
             name: 
