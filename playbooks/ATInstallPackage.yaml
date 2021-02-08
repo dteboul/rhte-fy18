@@ -5,6 +5,13 @@
   - package_name: httpd
 
   tasks:
+  - name: Install yum utils
+  package:
+    name:
+    - yum-utils
+    - "@Development tools"
+    lock_timeout: 180
+    
   - name: install package {{ package_name }} for {{hostvars[inventory_hostname].ansible_ssh_host}}  host {{hostvars[inventory_hostname].cloudforms.connection_state}}
     yum: name={{ package_name }} state=present
 
