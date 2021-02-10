@@ -20,9 +20,9 @@
       url: "{{ hostvars[inventory_hostname].cloudforms.href }}/tags"
       method: POST
       validate_certs: no
-      force_basic_auth: yes
-      user: "{{ user }}"
-      password: "{{ password }}"
+      headers:
+         X-Auth-Token: "{{ manageiq.api_token }}"
+         Content-Type: "application/json"
       body_format: json
       body:
         action: assign
