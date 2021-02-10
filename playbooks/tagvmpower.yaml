@@ -23,7 +23,7 @@
       body:
         action: assign
         resources:
-        - name: "/function/database"
+        - name: "/Department/Engineering"
     register: output
     
   - debug: var=output
