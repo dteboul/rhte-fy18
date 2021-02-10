@@ -23,7 +23,7 @@
       body:
         action: assign
         resources:
-        - name: "/Department/Engineering"
+        - name: "/department/Engineering"
     register: output
     
   - debug: var=output
