@@ -2,14 +2,10 @@
 - name: Tag VM
   hosts: "{{ vm_target_name }}"
   vars: 
-    user: admin
-    password: smartvm
     vm_target_name:
 
   tasks:
   - debug: var=hostvars[inventory_hostname].cloudforms.href
-  - debug: var=user
-  - debug: var=password
   - debug: var=manageiq.api_url
   - debug: var=manageiq.api_token
   - debug: var=manageiq.service
