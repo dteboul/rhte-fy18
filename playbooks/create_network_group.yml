@@ -71,7 +71,7 @@
     
   - set_fact:
       association_hrefs: "{{ association_hrefs + [ { 'href': item } ] }}"
-    with_items: "{{ associations|json_query('json.network_groups[*].href') }}"
+    with_items: "{{ associations|json_query('json.network_group[*].href') }}"
     
   - set_fact:
       association_hrefs: "{{ association_hrefs + [ { 'href': new_go_href } ] }}"
