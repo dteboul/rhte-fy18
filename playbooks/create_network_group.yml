@@ -87,6 +87,6 @@
       body:
         action: edit
         associations:
-          network_groups:
+          network_group:
             "{{ association_hrefs }}"
     register: output 
