@@ -6,3 +6,7 @@
  
   - name: Hello World!
     shell: echo "Hi! this is an alert"
+  - name: "resu"
+    set_stats:
+        data:
+          resu:  "Alert HOST >5"
